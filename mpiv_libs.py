@@ -6,6 +6,8 @@
 # 1st line Access Key
 # 2nd line Secret Key
 #
+# To use all functions type in: import mpiv_libs.py *
+#
 #################IMPROVEMENTS#####################
 # How T.io connection can be tested?
 #
@@ -24,6 +26,7 @@ def connect_IO():
     return tio
     
 def show_scans():
+    '''This function shows all scans available in a T.io instance, will print the results'''
     tio = connect_IO()
     scans_id = []
     for scan in tio.scans.list(): 
@@ -32,6 +35,13 @@ def show_scans():
     return scans_id
 
 def report(*args, filename):
+    '''This function generates a report of all scans or a selected number of scans
+    to call the function do it like this:
+    
+    eg: report(scan_id, filename='yourfilename')
+    
+    If no scan ID specified, will generate a full report. Scan ID's should be comma separated '''
+    
     all_scans = show_scans()
     tio = connect_IO()
     
