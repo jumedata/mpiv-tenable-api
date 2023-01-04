@@ -10,6 +10,6 @@ Current status of MPIV library is at: https://github.com/jumedata/pytenable - On
 
 Current available functions are:
 
-connect_IO(): To connect to Tenable IO
-show_scans(): show all scans available
-report(*args, filename): generate .csv reports
+connect_IO(): To connect to Tenable IO  
+show_scans(): show all scans available  
+report(\*args, filename): generate .csv reports  
