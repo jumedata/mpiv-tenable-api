@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[52]:
-
-
 # By: MPIV Partners - v1.0
 
 #### NOTES ################################
@@ -63,10 +57,4 @@ def report(*args, filename):
         print(".csv Report Completed!")
     return None        
     
-
-
-# In[ ]:
-
-
-
 
