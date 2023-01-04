@@ -1,3 +1,3 @@
 # Pytenable
 
-This repo will have updated version of the functions libraries created for MPIV using Pytenable, Navi or Tenable API's
+This repo will have updated versions of the functions and libraries created for MPIV using Pytenable, Navi or Tenable API's
