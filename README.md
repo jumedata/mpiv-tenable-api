@@ -12,4 +12,10 @@ Current available functions are:
 
 **connect_IO():** To connect to Tenable IO  
 **show_scans():** show all scans available  
-**report(\*args, filename):** generate .csv reports  
+**vul_report(\*args, filename):** generate .csv reports  
+**get_asset_list:()** return the assets in a Python list, each asset as a dict
+**get_tag_list():** return the tags in a Python list, each tag as a dict
+**asset_repot(filename):** generate a csv report of all assets in T.io
+**tag_exist(category, value):** returns True if a tag value pair category/value exists
+**tag_summary()** print a summary of the tags in T.io
+
