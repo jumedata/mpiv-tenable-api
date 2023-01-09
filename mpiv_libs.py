@@ -1,29 +1,14 @@
-<<<<<<< HEAD
 # By: MPIV Partners - v1.3
-=======
-# By: MPIV Partners - v1.0
->>>>>>> b3fa1b15ae0f2aa8cec2c8895130fbe4c4920461
-
 #### NOTES ################################
 # The user should store API keys in a file named API_Keys.txt. 
 # that file should contain only two lines:
 # 1st line Access Key
 # 2nd line Secret Key
 #
-<<<<<<< HEAD
 #################IMPROVEMENTS#####################
 # 
 #
 
-=======
-# To use all functions type in: import mpiv_libs.py *
-#
-#################IMPROVEMENTS#####################
-# How T.io connection can be tested?
-#
-
-
->>>>>>> b3fa1b15ae0f2aa8cec2c8895130fbe4c4920461
 from tenable.io import TenableIO
 
 def connect_IO():
@@ -34,17 +19,10 @@ def connect_IO():
         access_key = api_keys[0]
         secret_key = api_keys[1]
     tio = TenableIO(access_key, secret_key)
-<<<<<<< HEAD
     print(tio.server.status())
     return tio
     
 def show_scans():
-=======
-    return tio
-    
-def show_scans():
-    '''This function shows all scans available in a T.io instance, will print the results'''
->>>>>>> b3fa1b15ae0f2aa8cec2c8895130fbe4c4920461
     tio = connect_IO()
     scans_id = []
     for scan in tio.scans.list(): 
@@ -52,18 +30,7 @@ def show_scans():
         scans_id.append(scan['id'])
     return scans_id
 
-<<<<<<< HEAD
 def vuln_report(*args, filename):
-=======
-def report(*args, filename):
-    '''This function generates a report of all scans or a selected number of scans
-    to call the function do it like this:
-    
-    eg: report(scan_id, filename='yourfilename')
-    
-    If no scan ID specified, will generate a full report. Scan ID's should be comma separated '''
-    
->>>>>>> b3fa1b15ae0f2aa8cec2c8895130fbe4c4920461
     all_scans = show_scans()
     tio = connect_IO()
     
@@ -87,7 +54,6 @@ def report(*args, filename):
                 continue
                 
         print(".csv Report Completed!")
-<<<<<<< HEAD
     return None
 
 def get_asset_list():
@@ -180,8 +146,3 @@ def tag_summary():
     
     
     
-=======
-    return None        
-    
-
->>>>>>> b3fa1b15ae0f2aa8cec2c8895130fbe4c4920461
