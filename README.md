@@ -22,7 +22,7 @@ Shows all scans available in T.io
 **vul_report(\*args, filename):**  
 Generates a .csv report  
 
-See example output within the outpufiles folder: *Example_vulns-repo.csv*
+See [Example Vulns Report](outputfiles/Example_vulns_repo.csv)
 
 
 **get_asset_list:()**  
@@ -34,7 +34,7 @@ Returns a list of dictionaries with tags info
 **asset_report(filename):**  
 Generates a csv file with the list of assets found in Tenable.io  
 
-See example output within the outpufiles folder: *Example_asset-repo.csv*
+See [Example Assets Report](outputfiles/Example_asset_repo.csv)
  
 **tag_summary()**  
 Prints a summary of the tags in T.io 
