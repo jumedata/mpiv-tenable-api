@@ -12,7 +12,9 @@ Current available functions are:
 
 **connect_IO():** To connect to Tenable IO  
 **show_scans():** show all scans available  
+![image](images/showscansoutput.png)
 **vul_report(\*args, filename):** generate .csv reports  
+![image](images/vulnreportoutput.png)
 **get_asset_list:()** return the assets in a Python list, each asset as a dict  
 **get_tag_list():** return the tags in a Python list, each tag as a dict  
 **asset_repot(filename):** generate a csv report of all assets in T.io  
