@@ -1,24 +1,26 @@
-# By: MPIV Partners - v1.3 - Jan 18th, 2022
+# Use Tenable IO through Pytenable
+# By: MPIV Partners
+# v1.3 - Jan 18th, 2022
 #### NOTES ################################
-# The user should store API keys in a file named API_Keys.txt. 
+# The user should store API keys in a file named TIO_API_Keys.txt 
 # that file should contain only two lines:
 # 1st line Access Key
 # 2nd line Secret Key
 #
 #################IMPROVEMENTS#####################
-# 
+# Use ciphered version of the API Keys files
 #
 
 
 from tenable.io import TenableIO
 
-def connect_IO():
+def connect_io():
     '''This function connects to Tenable.io, user should store API keys in a file
-    named API_Keys.txt. That file should contain only two lines: 1st line AK, second: SK.
+    named IO_API_Keys.txt. That file should contain only two lines: 1st line AK, second: SK.
     After connecting it will show the status of the connection. Returns an object called: tio,
     which contains all the tio objects avaibale with pytenable'''
 
-    with open("API_Keys.txt") as file:
+    with open("IO_API_Keys.txt") as file:
         api_keys = [line.rstrip() for line in file]
         access_key = api_keys[0]
         secret_key = api_keys[1]
@@ -30,8 +32,9 @@ def show_scans():
     '''This function first, connects to tenable.io using connect_IO and then shows in screen the 
     list of all the scans created in T.io. Returns a list with all the scans id's'''
 
-    tio = connect_IO()
+    tio = connect_io()
     scans_id = []
+    print('Scan ID\tStatus\t\t Name')
     for scan in tio.scans.list(): 
         print('{id}\t{status}\t {name} '.format(**scan))
         scans_id.append(scan['id'])
@@ -46,6 +49,7 @@ def vuln_report(*args, filename):
     
     # This line connects to T.io and gets the scan id's using show_scans
     all_scans = show_scans() 
+    tio = connect_io()
     
     if len(args) == 0:
         with open(filename+'.csv', 'ab') as reportobj:
@@ -74,7 +78,7 @@ def get_asset_list():
     '''This function connects to Tenable.io and returns a list of dictionaries with the assets info
     '''
     
-    tio = connect_IO()
+    tio = connect_io()
     list_assets =[]
     
     for asset in tio.exports.assets():
@@ -86,7 +90,7 @@ def get_tag_list():
     
     '''This function connects to Tenable.io and returns a list of dictionaries with tags info'''
 
-    tio = connect_IO()
+    tio = connect_io()
     lista_tags = []
     
     for tag in tio.tags.list():
