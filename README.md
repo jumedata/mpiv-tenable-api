@@ -4,20 +4,38 @@ This repo will have updated versions of the functions and libraries created for 
 
 ## MPIV Library
 
-Generally speaking, all API projects will be created as functions that can be used according to specific needs. By using functions, we simplify the usage for customers and we can have more control on the user input, also easing reusing code for different projects.
+Generally speaking, all API projects will be created as functions that can be used according to specific needs. By using functions, we simplify the usage for customers and we can have more control on the user input, also easing code reuse for different projects.
 
 Current status of MPIV library is at: https://github.com/jumedata/pytenable - Only accesible to Oporto, Garcia and me:
 
-Current available functions are:
+### Current available functions
 
-**connect_IO():** To connect to Tenable IO  
-**show_scans():** show all scans available  
-![image](images/showscansoutput.jpg)
-**vul_report(\*args, filename):** generate .csv reports  
-![image](images/vulnreportoutput.jpg)
-**get_asset_list:()** return the assets in a Python list, each asset as a dict  
-**get_tag_list():** return the tags in a Python list, each tag as a dict  
-**asset_repot(filename):** generate a csv report of all assets in T.io  
-**tag_exist(category, value):** returns True if tag value pair category/value exists  
-**tag_summary()** print a summary of the tags in T.io  
+**connect_IO():**  
+This Function connects to Tenable.io using API Keys    
+
+**show_scans():**  
+Shows all scans available in T.io    
+
+![image](images/showscansoutput.jpg "show_scans output")  
+
+
+**vul_report(\*args, filename):**  
+Generates a .csv report  
+
+See example output within the outpufiles folder: *Example_vulns-repo.csv*
+
+
+**get_asset_list:()**  
+Returns a list of dictionaries with the assets info  
+
+**get_tag_list():**  
+Returns a list of dictionaries with tags info  
+
+**asset_report(filename):**  
+Generates a csv file with the list of assets found in Tenable.io  
+
+See example output within the outpufiles folder: *Example_asset-repo.csv*
+ 
+**tag_summary()**  
+Prints a summary of the tags in T.io 
 
