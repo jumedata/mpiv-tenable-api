@@ -48,5 +48,32 @@ def show_asset_lists():
    
     return al_ids
 
+def scan_creds_report():
+    sc = connect_sc()
+    iline =""
+    with open('scans_creds_report.csv', 'w') as file:
+        file.write("Scan ID,Scan Name, Credentials\n")
+        
+        
+        for scan in sc.scans.list()['manageable']:
+            scan_detail = sc.scans.details(scan['id'])
+            iline+=scan_detail['id']+','+scan_detail['name']+','
+            
+            if len(scan_detail['credentials']) == 0:
+                iline+='None'
+            else:
+                for credential in scan_detail['credentials']:
+                    iline+=credential['name']+';'
+                    
+            rev_n = iline[::-1].replace(";", "", 1)
+            iline = rev_n[::-1]
+                
+            file.write(iline+'\n')
+            iline=""
+    print("Scans/Credentials report generated")
+    return None
+
+
+
 
 #def get_assetlist_id(al_name):
