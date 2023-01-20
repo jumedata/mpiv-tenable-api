@@ -62,4 +62,4 @@ Print in screen all the assets lists that an user can edit
 **scan_details_report():**
 Generates a .csv report showing: credentials, policies and assets lists configured in each scan 
 
-See [Example Scans/Credentials Report](outputfiles/scans_details_report.csv)
+See [Example Scans Details Report](outputfiles/scans_details_report.csv)
