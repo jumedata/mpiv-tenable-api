@@ -59,7 +59,7 @@ Allows the creation of a ststic ip lits in Tenable.sc using a .csv file only con
 **show_asset_list():**  
 Print in screen all the assets lists that an user can edit
 
-**scan_creds_report():**
-Generates a .csv report showing the credentials used by each scan  
+**scan_details_report():**
+Generates a .csv report showing: credentials, policies and assets lists configured in each scan 
 
-See [Example Scans/Credentials Report](outputfiles/scans_creds_report.csv)
+See [Example Scans/Credentials Report](outputfiles/scans_details_report.csv)

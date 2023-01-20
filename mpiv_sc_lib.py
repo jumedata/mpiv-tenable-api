@@ -48,17 +48,21 @@ def show_asset_lists():
    
     return al_ids
 
-def scan_creds_report():
+def scan_details_report():
     sc = connect_sc()
     iline =""
-    with open('scans_creds_report.csv', 'w') as file:
-        file.write("Scan ID,Scan Name, Credentials\n")
+    with open('scans_details_report.csv', 'w') as file:
+        file.write("Scan ID,Scan Name, Credentials, Scan Policy, Asset Lists\n")
         
         
         for scan in sc.scans.list()['manageable']:
+            
             scan_detail = sc.scans.details(scan['id'])
+            
+            # Add the scan id and name to the line
             iline+=scan_detail['id']+','+scan_detail['name']+','
             
+            # Add the credentials to the line
             if len(scan_detail['credentials']) == 0:
                 iline+='None'
             else:
@@ -67,10 +71,29 @@ def scan_creds_report():
                     
             rev_n = iline[::-1].replace(";", "", 1)
             iline = rev_n[::-1]
-                
+
+            # Add the Scan policy
+            
+            iline+= ','+scan_detail['policy']['name']
+            
+           
+            # Add the Assets List Name
+
+            if len(scan_detail['assets']) == 0:
+                iline+= ',None'
+            elif len(scan_detail['assets']) == 1:
+                iline+= ','+scan['assets'][0]['name']
+            else:
+                iline+=','
+                for al in scan_detail['assets']:
+                    iline+=al['name']+';'
+                rev_n = iline[::-1].replace(";", "", 1)
+                iline = rev_n[::-1]
+          
             file.write(iline+'\n')
             iline=""
-    print("Scans/Credentials report generated")
+            
+    print("Scans details report generated")
     return None
 
 
