@@ -1,8 +1,8 @@
 # Use Tenable SC through Pytenable
 # By: MPIV Partners
-# v1.0 - Jan 18th, 2022
-#### NOTES ################################
-# Current connection only through user/password combination
+# v1.1 - Jan 23rd, 2022
+#### NOTES #######################################
+# Connectio to T.sc changed from user/pass to API keys
 #
 #################IMPROVEMENTS#####################
 # Use API Keys
@@ -11,12 +11,12 @@
 
 from tenable.sc import TenableSC
 
-def connect_sc():
+def connect_pass_sc():
     '''This function connects to Tenable.sc, user should store user and password in a file named
     SC_API_Keys.txt. That file should contain only three lines: 1st Tenable.sc IP, 2nd: user name,
     3rd: password'''
 
-    with open("SC_API_Keys.txt") as file:
+    with open("SC_Pass_Keys.txt") as file:
         connection_details = [line.rstrip() for line in file]
         ip_addr = connection_details[0]
         user_name = connection_details[1]
@@ -26,8 +26,21 @@ def connect_sc():
     sc.login(user_name, password)
     return sc
 
+def connect_apik_sc():
+
+    with open("SC_API_Keys.txt") as file:
+        connection_details = [line.rstrip() for line in file]
+        host = connection_details[0]
+        AK = connection_details[1]
+        SK = connection_details[2]
+    sc = TenableSC(host, access_key = AK, secret_key = SK)
+    return sc 
+
+
 def create_csv_al(filename,al_name):
-    sc =    connect_sc()
+    '''This functions create a Asset list in T.sc using a .csv file
+    '''
+    sc = connect_apik_sc()
     f = open(filename, "r")
     lines = f.readlines()
     list_ip=[]
@@ -39,7 +52,7 @@ def create_csv_al(filename,al_name):
 
 def show_asset_lists():
     al_ids=[]
-    sc = connect_sc()
+    sc = connect_apik_sc()
     asset_lists = sc.asset_lists.list()['manageable']
     print("Asset List ID\tAsset List Name")
     for al in asset_lists:
@@ -49,7 +62,7 @@ def show_asset_lists():
     return al_ids
 
 def scan_details_report():
-    sc = connect_sc()
+    sc = connect_apik_sc()
     iline =""
     with open('scans_details_report.csv', 'w') as file:
         file.write("Scan ID,Scan Name, Credentials, Scan Policy, Asset Lists\n")

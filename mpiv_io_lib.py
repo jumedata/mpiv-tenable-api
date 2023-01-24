@@ -15,7 +15,7 @@
 from tenable.io import TenableIO
 
 def connect_io():
-    '''This function connects to Tenable.io, user should store API keys in a file
+    '''Connects to Tenable.io, user should store API keys in a file
     named IO_API_Keys.txt. That file should contain only two lines: 1st line AK, second: SK.
     After connecting it will show the status of the connection. Returns an object called: tio,
     which contains all the tio objects avaibale with pytenable'''
