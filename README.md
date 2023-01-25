@@ -63,3 +63,7 @@ Print in screen all the assets lists that an user can edit
 Generates a .csv report showing: credentials, policies and assets lists configured in each scan 
 
 See [Example Scans Details Report](outputfiles/scans_details_report.csv)
+
+**edit_csv_al():**
+Edits an existing static asset list with the IP listed in a .csv file
+

@@ -167,7 +167,7 @@ def scan_details_report():
             
     return "Scans details report generated"
 
-def edit_al(al_id,filename,mode='add'):
+def edit_csv_al(al_id,filename,mode='add'):
 
     '''
     Edits an asset list from a .csv file. If no mode selected, by default the 
