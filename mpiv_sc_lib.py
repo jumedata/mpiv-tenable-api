@@ -1,20 +1,33 @@
 # Use Tenable SC through Pytenable
 # By: MPIV Partners
-# v1.1 - Jan 23rd, 2022
+# v1.3 - Jan 25th, 2022
 #### NOTES #######################################
-# Connectio to T.sc changed from user/pass to API keys
+# Added doctring comments and edit function
 #
 #################IMPROVEMENTS#####################
-# Use API Keys
+# 
 #
 
 
 from tenable.sc import TenableSC
 
 def connect_pass_sc():
-    '''This function connects to Tenable.sc, user should store user and password in a file named
-    SC_API_Keys.txt. That file should contain only three lines: 1st Tenable.sc IP, 2nd: user name,
-    3rd: password'''
+    '''
+    Creates a connection to Tenable.sc using an user name and paswword. 
+    The user name and password are read from a  file called SC_Pass_Keys.txt 
+    
+    The file should have only three lines in the
+    following order:
+
+    1st Line: IP addres of the Tenable.sc
+    2nd Line: username
+    3rd Line: password
+
+    Returns an sc object which allows to use al pytenable methods.
+
+    Because of the type of connection, will return a in screen message alerting.
+    it is starting an unauthenticated session
+    '''
 
     with open("SC_Pass_Keys.txt") as file:
         connection_details = [line.rstrip() for line in file]
@@ -28,6 +41,18 @@ def connect_pass_sc():
 
 def connect_apik_sc():
 
+    '''
+    Creates a connection to Tenable.sc using API keys. The keys are read from a 
+    file called SC_API_Keys.txt. The file should have only three lines in the
+    following order:
+
+    1st Line: IP addres of the Tenable.sc
+    2nd Line: Access Key
+    3rd Line: Secret Key
+
+    Returns an sc object which allows to use all pytenable methods.
+    '''
+
     with open("SC_API_Keys.txt") as file:
         connection_details = [line.rstrip() for line in file]
         host = connection_details[0]
@@ -38,7 +63,13 @@ def connect_apik_sc():
 
 
 def create_csv_al(filename,al_name):
-    '''This functions create a Asset list in T.sc using a .csv file
+    '''
+    Create an Asset list in Tenable.sc using as input a .csv file only containing
+    IP addresses.
+
+    Required Parameters:
+    filename: String that includes the .csv, eg: filename.csv
+    al_name: String with the desired name for the new asset list
     '''
     sc = connect_apik_sc()
     f = open(filename, "r")
@@ -48,25 +79,53 @@ def create_csv_al(filename,al_name):
         list_ip.append(line.strip())
     sc.asset_lists.create(al_name, 'static',ips=list_ip)
     print("Asset list "+al_name+" successfully created")
-    return None
+    return "Asset list {} successfully created".format(al_name)
 
-def show_asset_lists():
+def show_asset_lists(mode='detail'):
+    
+    '''
+    In all cases the functions returns a list with the id's of all the scans
+    currently configured in Tenable.sc. If no additional parameter specified,
+    the function uses the detailed mode and prints all the scan names and ids.
+
+    If mode set to 'silent' will not print any details
+
+    If wrong mode selectes will return an alert message    
+    '''
+
     al_ids=[]
     sc = connect_apik_sc()
     asset_lists = sc.asset_lists.list()['manageable']
-    print("Asset List ID\tAsset List Name")
-    for al in asset_lists:
-        print("{}\t\t{}".format(al['id'], al['name']))
-        al_ids.append(int(al['id']))
-   
-    return al_ids
+
+    if mode == 'silent':
+        for al in asset_lists:
+            al_ids.append(int(al['id']))
+        return al_ids
+    
+    elif mode == "detail":
+
+        print("Asset List ID\tAsset List Name")
+        for al in asset_lists:
+            print("{}\t\t{}".format(al['id'], al['name']))
+            al_ids.append(int(al['id']))
+    
+        return al_ids
+    
+    else:
+        return "Mode {} not specified".format(mode)
 
 def scan_details_report():
+    '''
+    Generates a .csv file detailing the credentials, scan policies and asset lists
+    that each scan uses. Does not require imput parameters
+
+    File generated: scans_details_report.csv
+    '''
+
     sc = connect_apik_sc()
     iline =""
     with open('scans_details_report.csv', 'w') as file:
         file.write("Scan ID,Scan Name, Credentials, Scan Policy, Asset Lists\n")
-        
         
         for scan in sc.scans.list()['manageable']:
             
@@ -106,10 +165,46 @@ def scan_details_report():
             file.write(iline+'\n')
             iline=""
             
-    print("Scans details report generated")
-    return None
+    return "Scans details report generated"
 
+def edit_al(al_id,filename,mode='add'):
 
+    '''
+    Edits an asset list from a .csv file. If no mode selected, by default the 
+    function will add the ip's on the .csv file to the current ip config. If full 
+    mode specified, the current ip's  will be deleted and the ones specified in 
+    the csv file will be configured to the asset list
+    '''
+    
+    sc = connect_apik_sc()
+    al_ids = show_asset_lists(mode = 'silent')
+
+    if al_id not in al_ids:
+        return "Asset list id {} does not exists".format(al_id)
+    else:
+        pass
+
+    f = open(filename, "r")
+    lines = f.readlines()
+    new_ips=[]
+    for line in lines:
+        new_ips.append(line.strip())
+        
+    if mode=='add':
+        al_detail = sc.asset_lists.details(al_id)
+        current_ips = al_detail['typeFields']['definedIPs'].split(',')
+        
+        sc.asset_lists.edit(al_id,ips = new_ips + current_ips)
+        
+        return "Succesfully added IP's to {}".format(al_detail['name'])
+    
+    elif mode=='full':
+        sc.asset_lists.edit(al_id,ips = new_ips)
+        
+        return "Succesfully Edited IP's on {}".format(al_detail['name'])
+        
+    else:
+        return "{} mode not specified, use full for full edit or no parameter to add new IP's".format(mode)
 
 
 #def get_assetlist_id(al_name):

@@ -1,11 +1,9 @@
 # Use Tenable IO through Pytenable
 # By: MPIV Partners
-# v1.3 - Jan 18th, 2022
+# v1.3 - Jan 23th, 2022
 #### NOTES ################################
-# The user should store API keys in a file named TIO_API_Keys.txt 
-# that file should contain only two lines:
-# 1st line Access Key
-# 2nd line Secret Key
+# Added doc string comments 
+# 
 #
 #################IMPROVEMENTS#####################
 # Use ciphered version of the API Keys files
@@ -15,10 +13,16 @@
 from tenable.io import TenableIO
 
 def connect_io():
-    '''Connects to Tenable.io, user should store API keys in a file
-    named IO_API_Keys.txt. That file should contain only two lines: 1st line AK, second: SK.
-    After connecting it will show the status of the connection. Returns an object called: tio,
-    which contains all the tio objects avaibale with pytenable'''
+    '''
+    Creates a connection to Tenable.io using API keys. The keys are read from a 
+    file called IO_API_Keys.txt. The file should have only two lines in the
+    following order:
+
+    1st Line: Access Key
+    2nd Line: Secret Key
+
+    Returns an io object which allows to use all pytenable methods.
+    '''
 
     with open("IO_API_Keys.txt") as file:
         api_keys = [line.rstrip() for line in file]
@@ -29,8 +33,13 @@ def connect_io():
     return tio
     
 def show_scans():
-    '''This function first, connects to tenable.io using connect_IO and then shows in screen the 
-    list of all the scans created in T.io. Returns a list with all the scans id's'''
+    
+    '''
+    Connects to tenable.io using connect_IO and then shows in screen the list
+    of all the scans created in T.io. 
+    
+    Returns a list with all the scans id's
+    '''
 
     tio = connect_io()
     scans_id = []
@@ -41,11 +50,17 @@ def show_scans():
     return scans_id
 
 def vuln_report(*args, filename):
-    '''This function creates a vulnerabilities csv report. The user will always need to provide the
-    filename as 'filename' (No need to add the format). if no arguments added, the function will
-    generate a vulnerabilities report of all scans. If sacn id's passed, it will only generate
-    the report of the provided scan id's. The function returns nothing but, generates the .csv 
-    report. The function prints messages on screen when report is completed'''
+    '''
+    Creates a vulnerabilities csv report. The filename is a string that should be
+    provided always without specifying the format.
+    
+    If used without arguments, will generate a vulnerabilities report of all the
+    available scans in Tenable.io.
+    
+    If scans id's passed as parameters, the report will only contain data of the
+    specified id's
+    
+   '''
     
     # This line connects to T.io and gets the scan id's using show_scans
     all_scans = show_scans() 
@@ -57,7 +72,7 @@ def vuln_report(*args, filename):
                 tio.scans.export(i,('severity', 'neq', 'Info'), fobj=reportobj, format='csv')
                 print("Done with scan id:"+str(i))
     
-        print("All vulnerabilities report completed!")
+        return "All vulnerabilities report completed!"
         
     else:
         for i in args:
@@ -70,12 +85,12 @@ def vuln_report(*args, filename):
                 print("The scan id: "+str(i)+" does not exist, skipping to next scan id!")
                 continue
                 
-        print(".csv Report Completed!")
-    return None
+        return "Selected scans report completed!"
 
 def get_asset_list():
 
-    '''This function connects to Tenable.io and returns a list of dictionaries with the assets info
+    '''
+    Connects to Tenable.io, returns a list of dictionaries with the assets info
     '''
     
     tio = connect_io()
@@ -88,7 +103,9 @@ def get_asset_list():
 
 def get_tag_list():
     
-    '''This function connects to Tenable.io and returns a list of dictionaries with tags info'''
+    '''
+    Connects to Tenable.io and returns a list of dictionaries with tags info
+    '''
 
     tio = connect_io()
     lista_tags = []
@@ -99,13 +116,22 @@ def get_tag_list():
 
 def asset_report(filename):
 
-    '''This function generates a csv file with the list of assets found in Tenable.io. The file has
-    the following fields for each asset: UUID, IP, DNS Name and Tags. If an asset has more than one
-    IP or assigned to more than one tag, all the available options willbe semicolon separated.
-    The function returns nnothing but shows in screen when the report is finished'''
+    '''
+    Generates a csv file with the list of assets found in Tenable.io. The file 
+    has the following fields for each asset: 
+    
+        UUID: Unique asset Tenable.io identifier
+        IP: IP's related to the asset
+        DNS Name
+        Tags: Tags assigned to the asset
+        
+    If an asset has more than one related tag or IP, all the available options 
+    
+    will be shown in the same cell, semicolon separated.
+    '''
     
     list_assets = get_asset_list()
-    
+
     with open(filename+'.csv', 'w') as file:
         
         file.write("UUID,IP,NAME,TAGS(Category:Value)\n")
@@ -159,13 +185,15 @@ def asset_report(filename):
     return None
 
 def tag_summary():
-    '''This functions print in screen the list of tags avaialble in T.io'''
+    '''
+    Prints in screen the list of tags avaialble in T.io
+    '''
     tags = get_tag_list()
     
     print("Category\tValue\t\tTag UUID")
     
     for tag in tags:
         print(tag['category_name']+'\t\t'+tag['value']+'\t\t'+tag['uuid'])
-    return None
+    return "Done"
     
     
