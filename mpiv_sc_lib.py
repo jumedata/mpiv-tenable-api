@@ -2,10 +2,10 @@
 # By: MPIV Partners
 # v1.3 - Jan 25th, 2022
 #### NOTES #######################################
-# Added doctring comments and edit function
+# Added docstring comments and edit function
 #
 #################IMPROVEMENTS#####################
-# 
+#
 #
 
 
@@ -13,11 +13,9 @@ from tenable.sc import TenableSC
 
 def connect_pass_sc():
     '''
-    Creates a connection to Tenable.sc using an user name and paswword. 
-    The user name and password are read from a  file called SC_Pass_Keys.txt 
-    
-    The file should have only three lines in the
-    following order:
+    Creates a connection to Tenable.sc using an user name and password.
+    The user name and password are read from a  file called SC_Pass_Keys.txt         
+    The file should have only three lines in the following order:
 
     1st Line: IP addres of the Tenable.sc
     2nd Line: username
@@ -26,7 +24,7 @@ def connect_pass_sc():
     Returns an sc object which allows to use al pytenable methods.
 
     Because of the type of connection, will return a in screen message alerting.
-    it is starting an unauthenticated session
+    clearit is starting an unauthenticated session
     '''
 
     with open("SC_Pass_Keys.txt") as file:
@@ -61,7 +59,6 @@ def connect_apik_sc():
     sc = TenableSC(host, access_key = AK, secret_key = SK)
     return sc 
 
-
 def create_csv_al(filename,al_name):
     '''
     Create an Asset list in Tenable.sc using as input a .csv file only containing
@@ -90,9 +87,8 @@ def show_asset_lists(mode='detail'):
 
     If mode set to 'silent' will not print any details
 
-    If wrong mode selectes will return an alert message    
+    If wrong mode selected will return an alert message    
     '''
-
     al_ids=[]
     sc = connect_apik_sc()
     asset_lists = sc.asset_lists.list()['manageable']
@@ -110,7 +106,6 @@ def show_asset_lists(mode='detail'):
             al_ids.append(int(al['id']))
     
         return al_ids
-    
     else:
         return "Mode {} not specified".format(mode)
 
@@ -181,9 +176,7 @@ def edit_csv_al(al_id,filename,mode='add'):
 
     if al_id not in al_ids:
         return "Asset list id {} does not exists".format(al_id)
-    else:
-        pass
-
+    
     f = open(filename, "r")
     lines = f.readlines()
     new_ips=[]
@@ -206,5 +199,68 @@ def edit_csv_al(al_id,filename,mode='add'):
     else:
         return "{} mode not specified, use full for full edit or no parameter to add new IP's".format(mode)
 
+
+def al_used_in(al_id):
+
+    '''
+    Returns a dictionary with the names of queries and scans where a given 
+    asset list is used. If the dictionary is empty it means it is not used
+    '''
+    
+    sc = connect_apik_sc()
+    queries = []
+    scans = []
+    
+    for query in sc.queries.list()['manageable']:
+        
+        for fil in query['filters']:
+            if fil['filterName'] == 'asset' and fil['value']['id'] == str(al_id):
+                
+                queries.append(query['name'])
+                
+    for scan in sc.scans.list()['manageable']:
+    
+        if len(sc.scans.details(scan['id'])['assets']) > 0:
+
+            for al in sc.scans.details(scan['id'])['assets']:
+                if al['id'] == str(al_id):
+
+                    scans.append(scan['name'])
+    
+    return {'queries': queries, 'scans': scans}
+
+
+def user_created_items():
+
+    '''
+    Returns a dictionary detailing the scans and asset lists create by  
+    each user
+    '''
+
+    sc = connect_apik_sc()
+    users = []
+    
+    for user in sc.users.list():
+        users.append({'username':user['username'],'role':user['role']['name'], 'Asset Lists':[], 'Scans':[]})
+    
+    for al in sc.asset_lists.list()['manageable']:
+    
+        for user in users:
+            
+            if user['username'] == sc.asset_lists.details(int(al['id']))['owner']['username']:
+                user['Asset Lists'].append(al['name'])
+            else:
+                pass
+
+    for scan in sc.scans.list()['manageable']:
+        
+        for user in users:
+            
+            if user['username'] == sc.scans.details(int(scan['id']))['owner']['username']:
+                user['Scans'].append(scan['name'])
+            else:
+                pass
+    
+    return users
 
 #def get_assetlist_id(al_name):

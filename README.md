@@ -67,3 +67,8 @@ See [Example Scans Details Report](outputfiles/scans_details_report.csv)
 **edit_csv_al():**
 Edits an existing static asset list with the IP listed in a .csv file
 
+**al_used_in():**
+Returns a dictionary cotaining the names of the queries and scans where an asset list is used.
+
+**user_created_items():**
+Returns a dictionary detailing the scans and asset lists created by each user
