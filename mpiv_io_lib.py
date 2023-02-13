@@ -1,6 +1,6 @@
 # Use Tenable IO through Pytenable
 # By: MPIV Partners
-# v1.3 - Jan 23th, 2022
+# v1.3 - Jan 23th, 2023
 #### NOTES ################################
 # Added doc string comments 
 # 

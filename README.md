@@ -46,12 +46,25 @@ Prints a summary of the tags in T.io
 
 
 ### mpiv_sc_lib.py  
+This library allows the usage of Tenable.sc directly from Tenable.sc API
+
+#### Available Functions
+**connect_sc():**  
+Connect to Tenable.sc through a GET request on the API
+
+**show_asset_list():**  
+Print in screen all the assets lists that an user can edit
+
+### mpiv_pyten_sc_lib.py  
 This library allows the usage of Tenable.sc and pytenable
 
 #### Available Functions
 
-**connect_SC():**  
-Connect to Tenable.sc - Currently using user and password type connection  
+**connect_pass_sc():**  
+Connect to Tenable.sc using an user and password type connection  
+
+**connect_apik_sc():**  
+Connect to Tenable.sc using API keys
 
 **create_csv_all():**  
 Allows the creation of a ststic ip lits in Tenable.sc using a .csv file only containing ips  
