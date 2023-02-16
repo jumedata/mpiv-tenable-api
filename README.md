@@ -1,14 +1,19 @@
-# Pytenable
+# Why this Repo?
 
 This repo will have updated versions of the functions and libraries created for MPIV using Pytenable, Navi or Tenable API's
 
 ## MPIV Libraries
 
-Generally speaking, all API projects will be created as independent libraries, each one with unique functions that can be used according to specific needs. By using functions, we simplify the usage for customers and we can have more control on the user input, also easing code reuse for different projects.
+Currently we have develop three libraries:
+
+**mpiv_sc_lib:** This library uses the oficial Tenable.sc API to retrieve information and create new elements in Tenable.sc. It is the one receiving all the attetion as has acces to all elements.
+
+**mpiv_pyten_sc_lib:** This library uses pytenable to to retrieve information and create new elements in Tenable.sc. It was the first library created to interact with Tenable.sc, however it has limited access to certain resources such as dashboards and reports. Will not receive further updates.
+
+**mpiv_io_lib:**  This library uses pytenable to retrieve information and create new elements in Tenable.io. Up the moment is the only one created for Tenable.io, but is is highly feasible it will be deprecated to start using the official Tenable.io API
+
 
 Current status of MPIV libraries is detailed at: https://github.com/jumedata/pytenable - Only accesible to Oporto, Garcia and Meneses. 
-
-Currently there are two libraries:
 
 ### mpiv_io_lib.py  
 This library allows the usage of pytenable and Tenable.io
@@ -55,6 +60,10 @@ Connect to Tenable.sc through a GET request on the API
 **show_asset_list():**  
 Print in screen all the assets lists that an user can edit
 
+**create_csv_all():**  
+Allows the creation of a static ip list in Tenable.sc using a .csv file only containing ips 
+
+
 ### mpiv_pyten_sc_lib.py  
 This library allows the usage of Tenable.sc and pytenable
 
@@ -67,7 +76,7 @@ Connect to Tenable.sc using an user and password type connection
 Connect to Tenable.sc using API keys
 
 **create_csv_all():**  
-Allows the creation of a ststic ip lits in Tenable.sc using a .csv file only containing ips  
+Allows the creation of a static ip list in Tenable.sc using a .csv file only containing ips  
 
 **show_asset_list():**  
 Print in screen all the assets lists that an user can edit
