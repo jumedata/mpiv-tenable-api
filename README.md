@@ -54,14 +54,20 @@ Prints a summary of the tags in T.io
 This library allows the usage of Tenable.sc directly from Tenable.sc API
 
 #### Available Functions
-**connect_sc():**  
-Connect to Tenable.sc through a GET request on the API
+**get_sc():**  
+Performs a HTTP GET request to Tenable.sc using the API
+
+**post_sc():**  
+Performs a HTTP POST request to Tenable.sc using the API
 
 **show_asset_list():**  
 Print in screen all the assets lists that an user can edit
 
 **create_csv_all():**  
-Allows the creation of a static ip list in Tenable.sc using a .csv file only containing ips 
+Allows the creation of a static ip list in Tenable.sc using a .csv file only containing ips
+
+**scan_details_report():**
+Generates a .csv report showing: credentials, policies and assets lists configured in each scan 
 
 
 ### mpiv_pyten_sc_lib.py  

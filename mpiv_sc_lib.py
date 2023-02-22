@@ -111,3 +111,61 @@ def create_csv_al(filename,al_name):
     response = post_sc('asset', payload)
     
     return response
+
+def scan_details_report():
+    '''
+    Generates a .csv file detailing the credentials, scan policies and asset lists
+    that each scan uses. Does not require imput parameters
+
+    File generated: scans_details_report.csv
+    '''
+    response = get_sc(resource='scan?fields=id,name,credentials,policy,assets,owner&filter=excludeAllDefined,usable')
+
+    scan_details = response.json()
+
+    iline = ""
+    creds = ""
+    als = ""
+
+    with open('scans_details_report.csv', 'w') as file:
+        
+        file.write("Scan ID,Scan Name, Credentials, Scan Policy, Asset Lists\n")
+
+        for scan in scan_details['response']['usable']:
+
+            iline+=scan['id']+','+scan['name']+','+scan['policy']['name']
+
+            if len(scan['credentials']) == 0:
+                creds += 'None'
+
+            else:
+                for credential in scan['credentials']:
+                    creds += credential['name'] + ';'
+
+                rev_n = creds[::-1].replace(";", "", 1)
+                creds = rev_n[::-1]
+
+            iline += ','+creds
+
+            if len(scan['assets']) == 0:
+                als += 'None'
+
+            else:
+                for al in scan['assets']:
+                    als += al['name'] + ';'
+
+                rev_n = als[::-1].replace(";", "", 1)
+                als = rev_n[::-1]
+
+            iline += ','+als
+
+            file.write(iline+'\n')
+
+            iline = ""
+            creds = ""
+            als = ""
+    
+    return "Scans details report generated"
+
+
+
