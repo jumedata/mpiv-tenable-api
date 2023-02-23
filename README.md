@@ -60,6 +60,9 @@ Performs a HTTP GET request to Tenable.sc using the API
 **post_sc():**  
 Performs a HTTP POST request to Tenable.sc using the API
 
+**patch_sc():**  
+Performs a HTTP PATCH request to Tenable.sc using the API
+
 **show_asset_list():**  
 Print in screen all the assets lists that an user can edit
 
@@ -68,6 +71,12 @@ Allows the creation of a static ip list in Tenable.sc using a .csv file only con
 
 **scan_details_report():**
 Generates a .csv report showing: credentials, policies and assets lists configured in each scan 
+
+**edit_csv_al():**
+Edits an existing static asset list with the IP listed in a .csv file
+
+**user_created_items():**
+Returns a dictionary detailing the scans and asset lists created by each user
 
 
 ### mpiv_pyten_sc_lib.py  
