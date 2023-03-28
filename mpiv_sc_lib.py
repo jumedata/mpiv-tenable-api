@@ -10,6 +10,7 @@
 
 
 import requests
+import csv
 
 def read_con_data(file = "SC_API_Keys.txt"):
 
@@ -61,6 +62,18 @@ def post_sc(resource, payload):
     
     return response
 
+def dict_to_csv(dict_data, filename):
+
+    headers = dict_data[0].keys()
+    
+    with open(filename+'.csv', 'w') as f:
+        writer = csv.DictWriter(f, fieldnames=headers)
+        writer.writeheader()
+        writer.writerows(dict_data)
+
+    return "CSV File Generated"
+
+
 def patch_sc(resource, payload):
 
     '''
@@ -92,14 +105,20 @@ def show_asset_lists(mode='silent'):
     response = rawdata.json()
     list_ids = []
 
-    if mode=='detail':
-        print("Asset List ID\tAsset List Name\tOwner\tType")
-    
-    for asset_list in response['response']['usable']:
-        list_ids.append(asset_list['id'])
+    with open('asset_list_report.csv', 'w') as file:
         
+        file.write("Asset List ID,Ownwer,Type,Asset List Name\n")
+
         if mode=='detail':
-            print('{}\t\t{}\t\t{}\t\t{}'.format(asset_list['id'], asset_list['name'], asset_list['owner']['username'],asset_list['type']))
+            print("Asset List ID\tOwner\t\tType\t\tAsset List Name")
+        
+        for asset_list in response['response']['usable']:
+            list_ids.append(asset_list['id'])
+        
+            if mode=='detail':
+                print('{}\t\t{}\t\t{}\t\t{}'.format(asset_list['id'], asset_list['owner']['username'],asset_list['type'], asset_list['name']))
+            
+            file.write(asset_list['id']+','+asset_list['owner']['username']+','+asset_list['type']+','+asset_list['name']+"\n")
     
     return list_ids
 
@@ -131,7 +150,7 @@ def create_csv_al(filename,al_name):
 def scan_details_report():
     '''
     Generates a .csv file detailing the credentials, scan policies and asset lists
-    that each scan uses. Does not require imput parameters
+    that each scan uses. Does not require input parameters
 
     File generated: scans_details_report.csv
     '''
@@ -145,7 +164,7 @@ def scan_details_report():
 
     with open('scans_details_report.csv', 'w') as file:
         
-        file.write("Scan ID,Scan Name, Credentials, Scan Policy, Asset Lists\n")
+        file.write("Scan ID,Scan Name,Scan Policy, Credentials, Asset Lists\n")
 
         for scan in scan_details['response']['usable']:
 
@@ -158,8 +177,7 @@ def scan_details_report():
                 for credential in scan['credentials']:
                     creds += credential['name'] + ';'
 
-                rev_n = creds[::-1].replace(";", "", 1)
-                creds = rev_n[::-1]
+                creds = creds.strip(';')
 
             iline += ','+creds
 
@@ -170,8 +188,7 @@ def scan_details_report():
                 for al in scan['assets']:
                     als += al['name'] + ';'
 
-                rev_n = als[::-1].replace(";", "", 1)
-                als = rev_n[::-1]
+                als = als.strip(';')
 
             iline += ','+als
 
@@ -263,17 +280,27 @@ def al_used_in(al_id):
 def user_created_items():
 
     '''
-    Returns a dictionary detailing the scans and asset lists create by  
-    each user
+    Returns a csv and a dictionary detailing items created by each user.
+    The items are: Asset lists, scans, credentials, plicies, reports and dashboards
     '''
+
+    def del_semicolon(column):
+
+        for user in user_item:
+        
+            if len(user[column]) != 0:
+                user[column] = user[column].strip(';')
+        return None
+
+
     user_item = []
     r_users = get_sc(resource='user?fields=username,role')
     user_details = r_users.json()['response']
 
 
     for user in user_details:
-        user_item.append({'username':user['username'],'role':user['role']['name'], 'Asset Lists':[], 'Scans':[], 'Credentials':[],
-                          'Policies':[], 'Reports':[], 'Dashboards':[]})
+        user_item.append({'username':user['username'],'role':user['role']['name'], 'Asset Lists':'', 'Scans':'', 'Credentials':'',
+                          'Policies':'', 'Reports':'', 'Dashboards':''})
     
     r_asset = get_sc(resource='asset?filter=excludeAllDefined,usable&fields=id,name,creator')
     asset_details = r_asset.json()['response']['usable']
@@ -284,10 +311,13 @@ def user_created_items():
             
             if user['username'] == al['creator']['username']:
 
-                user['Asset Lists'].append(al['name'])
+                user['Asset Lists']+=al['name']+';'
 
             else:
                 pass
+        
+    del_semicolon('Asset Lists')    
+               
     
     r_scan = get_sc(resource='scan?fields=id,name,creator')
     scan_details = r_scan.json()['response']['usable']
@@ -298,10 +328,13 @@ def user_created_items():
             
             if user['username'] == scan['creator']['username']:
 
-                user['Scans'].append(scan['name'])
-
+                user['Scans']+=scan['name']+';'
+                
             else:
                 pass
+    
+    del_semicolon('Scans')
+   
 
     r_cred = get_sc(resource='credential?fields=id,name,creator')
     cred_details = r_cred.json()['response']['usable']
@@ -312,10 +345,12 @@ def user_created_items():
             
             if user['username'] == cred['creator']['username']:
 
-                user['Credentials'].append(cred['name'])
+                user['Credentials']+=cred['name']+';'
 
             else:
                 pass
+    
+    del_semicolon('Credentials')
 
     r_policy = get_sc(resource='policy?fields=id,name,creator')
     policy_details = r_policy.json()['response']['usable']
@@ -326,10 +361,12 @@ def user_created_items():
             
             if user['username'] == policy['creator']['username']:
 
-                user['Policies'].append(policy['name'])
+                user['Policies']+=policy['name']+';'
 
             else:
                 pass
+    
+    del_semicolon('Policies')
 
     r_report = get_sc(resource='reportDefinition?fields=id,name,creator')
     report_details = r_report.json()['response']['usable']
@@ -340,10 +377,12 @@ def user_created_items():
             
             if user['username'] == report['creator']['username']:
 
-                user['Reports'].append(report['name'])
+                user['Reports']+=report['name']+';'
 
             else:
                 pass
+    
+    del_semicolon('Reports')
 
     r_dash = get_sc(resource='dashboard?fields=id,name,owner')
     dashboard_details = r_dash.json()['response']['usable']
@@ -354,10 +393,15 @@ def user_created_items():
             
             if user['username'] == dashboard['owner']['username']:
 
-                user['Dashboards'].append(dashboard['name'])
+                user['Dashboards']+=dashboard['name']+';'
 
             else:
                 pass
+
+    del_semicolon('Dashboards')
+    
+    dict_to_csv(user_item,'user_items')
+    
  
     return user_item
 

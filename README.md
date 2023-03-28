@@ -1,19 +1,22 @@
-# Why this Repo?
+# Why this repository?
 
-This repo will have updated versions of the functions and libraries created for MPIV using Pytenable, Navi or Tenable API's
+This repository will have updated versions of the functions and libraries created for MPIV using Tenable API's or Navi. Old pytenable based functions are kept for historic records.
+
+# Why not using pytenable?
+
+Pytenable is an interestig ongoing Tenable project, but sometimes, some of the functionalities requested by our customers cannot be covered if we use pytenable (eg. in Tenable.sc Reports and Dashboards), thus we prefer to use directly the Tenable API to fulfill those specific requests.
 
 ## MPIV Libraries
 
-Currently we have develop three libraries:
+Currently we have developed three libraries:
 
 **mpiv_sc_lib:** This library uses the oficial Tenable.sc API to retrieve information and create new elements in Tenable.sc. It is the one receiving all the attetion as has acces to all elements.
 
-**mpiv_pyten_sc_lib:** This library uses pytenable to to retrieve information and create new elements in Tenable.sc. It was the first library created to interact with Tenable.sc, however it has limited access to certain resources such as dashboards and reports. Will not receive further updates.
+**mpiv_io_lib:**  This library uses pytenable to retrieve information and create new elements in Tenable.io. It is the only one created so far for Tenable.io, but will not receive any further updates as all the features will be redesigned to use the official API
 
-**mpiv_io_lib:**  This library uses pytenable to retrieve information and create new elements in Tenable.io. Up the moment is the only one created for Tenable.io, but is is highly feasible it will be deprecated to start using the official Tenable.io API
+**mpiv_pyten_sc_lib:** It was the first library created to interact with Tenable.sc, however it has limited access to certain resources such as dashboards and reports, thus since jan 2023 is not receiving further updates.
 
 
-Current status of MPIV libraries is detailed at: https://github.com/jumedata/pytenable - Only accesible to Oporto, Garcia and Meneses. 
 
 ### mpiv_io_lib.py  
 This library allows the usage of pytenable and Tenable.io
@@ -64,37 +67,12 @@ Performs a HTTP POST request to Tenable.sc using the API
 Performs a HTTP PATCH request to Tenable.sc using the API
 
 **show_asset_list():**  
-Print in screen all the assets lists that an user can edit
+Crates a csv report with the details of all assets list. If in detail mode, the information is also printed in screen. The functions always returns a list containig the id's of the assets lists
+
+See [Example Asset List Report](outputfiles/asset_list_report.csv)
 
 **create_csv_all():**  
 Allows the creation of a static ip list in Tenable.sc using a .csv file only containing ips
-
-**scan_details_report():**
-Generates a .csv report showing: credentials, policies and assets lists configured in each scan 
-
-**edit_csv_al():**
-Edits an existing static asset list with the IP listed in a .csv file
-
-**user_created_items():**
-Returns a dictionary detailing the scans and asset lists created by each user
-
-
-### mpiv_pyten_sc_lib.py  
-This library allows the usage of Tenable.sc and pytenable
-
-#### Available Functions
-
-**connect_pass_sc():**  
-Connect to Tenable.sc using an user and password type connection  
-
-**connect_apik_sc():**  
-Connect to Tenable.sc using API keys
-
-**create_csv_all():**  
-Allows the creation of a static ip list in Tenable.sc using a .csv file only containing ips  
-
-**show_asset_list():**  
-Print in screen all the assets lists that an user can edit
 
 **scan_details_report():**
 Generates a .csv report showing: credentials, policies and assets lists configured in each scan 
@@ -108,4 +86,13 @@ Edits an existing static asset list with the IP listed in a .csv file
 Returns a dictionary cotaining the names of the queries and scans where an asset list is used.
 
 **user_created_items():**
-Returns a dictionary detailing the scans and asset lists created by each user
+Returns a csv file and dictionary detailing all the items created in Tenable.sc by an user
+
+See [Example User Created items Report](outputfiles/user_items.csv)
+
+
+### mpiv_pyten_sc_lib.py  
+This library allows the usage of Tenable.sc and pytenable, to see details of the functions, please look the .py file.
+
+
+
