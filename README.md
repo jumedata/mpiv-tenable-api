@@ -8,53 +8,38 @@ Pytenable is an interestig ongoing Tenable project, but sometimes, some of the f
 
 ## MPIV Libraries
 
-Currently we have developed three libraries:
+Currently we have developed four libraries:
 
 **mpiv_sc_lib:** This library uses the oficial Tenable.sc API to retrieve information and create new elements in Tenable.sc. It is the one receiving all the attetion as has acces to all elements.
 
+**mpiv_io_lib:** This library uses the oficial Tenable.io API to retrieve information and create new elements in Tenable.io. It is the one receiving all the attetion as has acces to all elements.
+
 **mpiv_io_lib:**  This library uses pytenable to retrieve information and create new elements in Tenable.io. It is the only one created so far for Tenable.io, but will not receive any further updates as all the features will be redesigned to use the official API
 
-**mpiv_pyten_sc_lib:** It was the first library created to interact with Tenable.sc, however it has limited access to certain resources such as dashboards and reports, thus since jan 2023 is not receiving further updates.
+**mpiv_pyten_sc_lib and mpiv_pyten_io_lib:** These were the first libraries created to interact with Tenable.sc and Tenable.io, but as some functionalities are not avaialble through pytenable, we decided to use thhe Tenable API's directly, thus since january 2023, these libraries are not receiving further updates.
 
 
 
 ### mpiv_io_lib.py  
-This library allows the usage of pytenable and Tenable.io
+This library allows the usage of Tenable.io directly from Tenable API
 
 #### Available functions
 
-**connect_IO():**  
-This Function connects to Tenable.io using API Keys    
+**get_io():**  
+Performs a HTTP GET request to Tenable.io using the API
+
+**post_io():**  
+Performs a HTTP POST request to Tenable.io using the API
+
+**put_io():**  
+Performs a HTTP PUT request to Tenable.io using the API   
 
 **show_scans():**  
-Shows all scans available in T.io    
-
-![image](images/showscansoutput.jpg "show_scans output")  
-
-
-**vul_report(\*args, filename):**  
-Generates a .csv report  
-
-See [Example Vulns Report](outputfiles/Example_vulns_repo.csv)
-
-
-**get_asset_list:()**  
-Returns a list of dictionaries with the assets info  
-
-**get_tag_list():**  
-Returns a list of dictionaries with tags info  
-
-**asset_report(filename):**  
-Generates a csv file with the list of assets found in Tenable.io  
-
-See [Example Assets Report](outputfiles/Example_asset_repo.csv)
- 
-**tag_summary()**  
-Prints a summary of the tags in T.io 
+Shows all scans available in T.io and returns a csv file with a report. The same report is printed in screen 
 
 
 ### mpiv_sc_lib.py  
-This library allows the usage of Tenable.sc directly from Tenable.sc API
+This library allows the usage of Tenable.sc directly from Tenable API
 
 #### Available Functions
 **get_sc():**  
@@ -91,8 +76,8 @@ Returns a csv file and dictionary detailing all the items created in Tenable.sc 
 See [Example User Created items Report](outputfiles/user_items.csv)
 
 
-### mpiv_pyten_sc_lib.py  
-This library allows the usage of Tenable.sc and pytenable, to see details of the functions, please look the .py file.
+### mpiv_pyten_sc_lib.py  and mpiv_pyten_io_lib.py  
+These libraries allows interacting with Tenable.sc and Tenable.io through pytenable. These were the first versions of MPIV libraries kept for historic records. To see details of the functions, please check the .py files of each library.
 
 
 
