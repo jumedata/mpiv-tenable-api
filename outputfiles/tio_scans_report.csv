@@ -1,0 +1,155 @@
+Scan ID,Status,Name,Owner
+122,empty,test-new-scanner,sberglund.ctr@tenable.com
+335,empty,Para Jose,sberglund.ctr@tenable.com
+346,empty,Heroinas OS - with common port range scanning,sberglund.ctr@tenable.com
+407,completed,Heroinas Agents Malware,sberglund.ctr@tenable.com
+411,aborted,test empyt tag behavior,sberglund.ctr@tenable.com
+28,empty,Sven-Candelaria-discovery,sberglund.ctr@tenable.com
+30,empty,Sven-Candelaria-common-ports,sberglund.ctr@tenable.com
+16,empty,TenableCoreNNMTio,system
+392,aborted,JUME TEST,jmeneses@tenable.com
+13,empty,Test-testfire.net,joporto.ctr@tenable.com
+15,empty,WAS-Selenium,joporto.ctr@tenable.com
+79,empty,Sven-AWS-Basic,sberglund.ctr@tenable.com
+75,empty,New,system
+77,empty,NS-Discovery-Sven,joporto.ctr@tenable.com
+81,empty,NS-Discovery-Sven,joporto.ctr@tenable.com
+53,empty,Sven-Heroinas-legacy-WAS,sberglund.ctr@tenable.com
+64,empty,Heroinas-Basic-Excluding-Agents,sberglund.ctr@tenable.com
+57,empty,11- segment discovery,sberglund.ctr@tenable.com
+55,empty,Sven-Heroinas-overlapping-discovery,sberglund.ctr@tenable.com
+41,empty,WAS-Atomoro-Selenium,joporto.ctr@tenable.com
+43,empty,WAS-Overview-Atomoro-Selenium,joporto.ctr@tenable.com
+46,completed,Sven-Heroinas-agent,sberglund.ctr@tenable.com
+37,empty,Sven-Candelaria-peppermint-compliance,sberglund.ctr@tenable.com
+35,empty,Sven-Candelaria-agent,sberglund.ctr@tenable.com
+51,empty,Sven-Heroinas-Policy-Machine104,sberglund.ctr@tenable.com
+33,empty,Sven-Candelaria-basic-group,sberglund.ctr@tenable.com
+39,empty,Sven-Heroinas-discovery,sberglund.ctr@tenable.com
+49,empty,Sven-Heroinas-credentialed-basic,sberglund.ctr@tenable.com
+83,empty,NS-Vulnerabilidades-Sven,joporto.ctr@tenable.com
+88,empty,NA-CIS Linux,joporto.ctr@tenable.com
+90,empty,NS-Software Inventory,joporto.ctr@tenable.com
+99,empty,NS-BNS-GFx,joporto.ctr@tenable.com
+111,empty,NA-Sven-Local,joporto.ctr@tenable.com
+134,empty,CIS CentOS 7 - TEST,joporto.ctr@tenable.com
+142,empty,Sven Home/Office 2 discovery,joporto.ctr@tenable.com
+146,empty,Sven-Candelaria-discovery,sberglund.ctr@tenable.com
+149,empty,Sven-Heroinas-credentialed-basic,sberglund.ctr@tenable.com
+183,empty,NS-Examples-Auditfiles,joporto.ctr@tenable.com
+188,empty,NA-Examples-Auditfiles,joporto.ctr@tenable.com
+180,empty,test user tg scan,sberglund.ctr@tenable.com
+176,empty,Internal PCI,sberglund.ctr@tenable.com
+168,empty,Azzure-Basic-scan,sberglund.ctr@tenable.com
+136,empty,Container machine scan,sven01@tenable.com
+166,empty,Scan Find flile,joporto.ctr@tenable.com
+113,empty,QS-MOD-Debian-9-Family,sberglund.ctr@tenable.com
+171,empty,Windows File Content Text,joporto.ctr@tenable.com
+252,empty,Port Scan Discovery,joporto.ctr@tenable.com
+254,empty,LABs Non-Credentialed Scan of HQ,joporto.ctr@tenable.com
+256,empty,LABs Credentialed Scan of HQ,joporto.ctr@tenable.com
+258,empty,LABs Sales Team Vulnerability Assessment,joporto.ctr@tenable.com
+260,empty,LABs Fast Vulnerability Assessment,joporto.ctr@tenable.com
+262,empty,LABs Vulnerability Assessment with Unsafe Checks Enabled,joporto.ctr@tenable.com
+264,empty,LABs  CIS Windows 2016,joporto.ctr@tenable.com
+266,empty,CIS Ubuntu,joporto.ctr@tenable.com
+191,empty,NA-Compliance Employee identification Number + debug,joporto.ctr@tenable.com
+194,empty,CIS W10 rel2004 y 20H2 - ALL,joporto.ctr@tenable.com
+196,empty,CIS W10 rel 20H2 - MOD1,joporto.ctr@tenable.com
+199,empty,CIS W10 rel 20H2 - ALL,joporto.ctr@tenable.com
+204,empty,CIS W10 rel 20H2 - MOD2,joporto.ctr@tenable.com
+207,empty,Nessus file with no results,joporto.ctr@tenable.com
+212,empty,CIS W10 rel 20H2 - MOD3,joporto.ctr@tenable.com
+216,empty,Custom Item - Prueba1 - MOD4,joporto.ctr@tenable.com
+220,empty,Custom Item - Prueba2 - MOD4,joporto.ctr@tenable.com
+238,empty,NS-BNS-GFx-Display unreachable hosts,joporto.ctr@tenable.com
+270,empty,LABS Credit Card Search,joporto.ctr@tenable.com
+273,empty,LABs Password Length Check,joporto.ctr@tenable.com
+283,empty,Agent scan,lumin-admin-user@tenable.com
+304,aborted,BNS-GFx-Scan-GFx-AO,joporto.ctr@tenable.com
+290,empty,NA-CIS WS 2012 R2 DC L1 v2.4.0 Scan-ADGFx,joporto.ctr@tenable.com
+293,empty,NA-CIS WS 2012 R2 DC L1 v2.4.0 Scan-ADGFx-baseline,joporto.ctr@tenable.com
+306,empty,Agent Scan Test,jchan@tenable.com
+308,empty,Copy of Sven-Heroinas-Policy-Machine104,sberglund.ctr@tenable.com
+309,empty,Copy of Scan Find flile,sberglund.ctr@tenable.com
+311,empty,Copy of Windows File Content Text,sberglund.ctr@tenable.com
+313,empty,Copy of CIS Ubuntu,sberglund.ctr@tenable.com
+315,empty,Copy of Container machine scan,sberglund.ctr@tenable.com
+317,empty,Copy of LABS Credit Card Search,sberglund.ctr@tenable.com
+320,empty,NNM test Daniel,system
+322,empty,Test Agent  - Plugin 20811,jchan@tenable.com
+324,empty,NS_BNS_EIT0002_POC_Manual,joporto.ctr@tenable.com
+326,empty,NS_CPA_EIT0002_POC_Manual,joporto.ctr@tenable.com
+328,empty,NS_BNS_EIT0001_POC_Manual,joporto.ctr@tenable.com
+275,empty,AD Starter scan,sberglund.ctr@tenable.com
+341,empty,Copy of NA-Compliance Employee identification Number + debug,joporto.ctr@tenable.com
+352,empty,NS-BNS-gfxdc003-002,joporto.ctr@tenable.com
+354,empty,NS-BNS-gfxdc003-003,joporto.ctr@tenable.com
+357,empty,NS-BNS-NDNFV2,joporto.ctr@tenable.com
+360,empty,NS-BNS-NDNFV2 - 2,joporto.ctr@tenable.com
+362,empty,Escaneo de Prueba,cbecerra@tenable.com
+366,empty,NS-QCD-NDNFV2 - 2,joporto.ctr@tenable.com
+367,empty,NS-QCD-METASPLOITABLE,joporto.ctr@tenable.com
+437,completed,test discotyver sven,sberglund.ctr@tenable.com
+373,completed,JUME-NNM,system
+240,aborted,NS-BNS-GFX-2,joporto.ctr@tenable.com
+21,aborted,BNSScan-GFx-SB,joporto.ctr@tenable.com
+20,aborted,DiscoveryScan-GFx,joporto.ctr@tenable.com
+289,aborted,NA-Basic Agent Scan-ADGFx,joporto.ctr@tenable.com
+498,completed,AJM-SCAN-DP,amoreno.ctr@tenable.com
+372,completed,Vuln scan basic Herionas,sberglund.ctr@tenable.com
+500,completed,AJM-SCAN-DP-ML,amoreno.ctr@tenable.com
+502,completed,AJM-SCAN-DP-CPS,amoreno.ctr@tenable.com
+526,completed,Host Discovery OS Scan LASO,lsanchez.ctr@tenable.com
+528,completed,Basic Net Scan LASO,lsanchez.ctr@tenable.com
+529,completed,NNM LASO,system
+380,completed,Heroinas Basic Network Vulnerabilities scan,sberglund.ctr@tenable.com
+378,aborted,Heroinas OS Discovery Advanced,sberglund.ctr@tenable.com
+403,aborted,Heroinas Full Port Scan,sberglund.ctr@tenable.com
+409,completed,Heroinas Windows Agents,sberglund.ctr@tenable.com
+415,completed,Heroinas Linux Agents,sberglund.ctr@tenable.com
+435,completed,Heroinas Windows Agents Compliance,sberglund.ctr@tenable.com
+481,completed,Fast Vulnerability Assess-MCanales,mcanales.ctr@tenable.com
+483,completed,CIS Windows 2016-Mcanales,mcanales.ctr@tenable.com
+531,completed,Basic Net Scan LASO with TAGS,lsanchez.ctr@tenable.com
+443,empty,Test Trigger,jmeneses@tenable.com
+445,completed,Ubuntu Scan Test,jmeneses@tenable.com
+447,completed,Ubuntu Compliance,jmeneses@tenable.com
+455,completed,test ajmm,amorenotest@tenable.com
+533,aborted,Basic Network Scan LASO with OS,lsanchez.ctr@tenable.com
+449,empty,ajm-test,amoreno.ctr@tenable.com
+457,completed,AJM Agent Scan Test,amorenotest@tenable.com
+474,imported,AJM-SCAN-11-15-2022,amoreno.ctr@tenable.com
+476,imported,AJM-SCAN-11-15-2022,amoreno.ctr@tenable.com
+441,completed,AJM-SCAN,amoreno.ctr@tenable.com
+467,completed,AJM-SCAN-11-15-2022,amoreno.ctr@tenable.com
+510,completed,Test Collect Inventory,jmeneses@tenable.com
+465,empty,AJM-SCAN Debug,amoreno.ctr@tenable.com
+471,completed,AJM scan pci,amoreno.ctr@tenable.com
+469,completed,MCanales test scan,mcanales.ctr@tenable.com
+478,completed,Sales Team Vul Assess-MCanales,mcanales.ctr@tenable.com
+485,completed,CIS Windows 2016 Agent Scan-Canales,mcanales.ctr@tenable.com
+487,completed,Credit Card Search-Mcanales,mcanales.ctr@tenable.com
+490,completed,Password length check-Mcanales,mcanales.ctr@tenable.com
+492,canceled,AJM-SCAN Agent,amoreno.ctr@tenable.com
+494,completed,AJM-SCAN Agent compl Win 10,amoreno.ctr@tenable.com
+377,completed,Agent-Log4Shell-Heroinas,sberglund.ctr@tenable.com
+268,empty,CIS Windows 2016 Agent.,joporto.ctr@tenable.com
+399,completed,Heroinas Agents Basic,sberglund.ctr@tenable.com
+101,empty,QS-Credentialed-Sven,sberglund.ctr@tenable.com
+116,empty,QS-Sven-Candelaria,sberglund.ctr@tenable.com
+86,empty,NS-Escaneo de Vulnerabilidades-Credenciales - Sven,joporto.ctr@tenable.com
+119,empty,QS-credentailed-extensive,sberglund.ctr@tenable.com
+338,empty,Copy of NA-Compliance Employee identification Number + debug,joporto.ctr@tenable.com
+350,empty,NS-BNS-gfxdc003,joporto.ctr@tenable.com
+375,completed,Scan Test,jmeneses@tenable.com
+518,aborted,Test,jmeneses@tenable.com
+381,completed,NNM-Heroinas,system
+388,empty,Test Daniel,dgarcia.ctr@tenable.com
+245,aborted,LABs - Host Discovery - HQ,joporto.ctr@tenable.com
+250,aborted,Operating System - Host Discovery - HQ,joporto.ctr@tenable.com
+429,completed,CIS - Ubuntu,jmeneses@tenable.com
+343,canceled,NS-BNS-METASPLOITABLE-001,joporto.ctr@tenable.com
+423,canceled,BNS-HERO-Test,scanbridge_user_tio@tenable.com
+425,aborted,BNS-GFx-ALL,scanbridge_user_tio@tenable.com
+427,completed,DS-GFx-all,scanbridge_user_tio@tenable.com

@@ -93,10 +93,10 @@ def show_scans():
 
     with open('tio_scans_report.csv', 'w') as file:
         file.write("Scan ID,Status,Name,Owner\n")
-        print("Scan ID\tStatus\tName\tOwner")
+        #print("Scan ID\tStatus\tName\tOwner")
         for scan in scans:
             line = '{id},{status},{name},{owner}\n'.format(**scan)
-            print('{id}\t{status}\t{name}\t{owner} '.format(**scan))
+            #print('{id}\t{status}\t{name}\t{owner} '.format(**scan))
             scans_id.append(scan['id'])
             file.write(line)
 
