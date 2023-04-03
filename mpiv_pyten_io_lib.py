@@ -11,6 +11,7 @@
 
 
 from tenable.io import TenableIO
+import csv
 
 def connect_io(*args):
     '''
@@ -242,5 +243,23 @@ def tag_summary():
                 print('{category_name}\t\t{value}\t\t{uuid}'.format(**tag))
 
         return "Tags summary report generated"
+    
+def update_tags_csv(filename):
+
+    '''
+    Updates tags on assets from a csv file
+    '''
+
+    tio = connect_io()
+    reader = csv.DictReader(open(filename))
+    
+    try:
+        for row in reader:
+        
+            tio.tags.assign(assets=['{UUID}'.format(**row)],tags=['{TAG_ID}'.format(**row)])
+    except Exception:
+        print("Could not UPDATE: "+row('UUID'))
+    
+    return "Tag information update un provided assets"
     
     

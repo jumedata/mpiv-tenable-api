@@ -1,6 +1,6 @@
 # Why this repository?
 
-This repository will have updated versions of the functions and libraries created for MPIV using Tenable API's or Navi. Old pytenable based functions are kept for historic records.
+This repository will have updated versions of the functions and libraries created for MPIV using Tenable API's, Pytenable or Navi. 
 
 ## MPIV Libraries
 
@@ -73,6 +73,10 @@ See [T.io Assets Report](outputfiles/io_assets_report.csv)
 **tag_summary():**
 Prints in screen an generates a csv report with the list of tags avaialble in T.io
 
+**update_tags_csv():**
+Assigns tags in bulk to assets listed in a .csv file. The csv file must have two columns UUID and TAG_ID. See the following example:
+
+See [Assets and Tags](outputfiles/update_tags.csv)
 
 ### Other libraries
 
