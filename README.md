@@ -1,10 +1,46 @@
 # Why this repository?
 
-This repository will have updated versions of the functions and libraries created for MPIV using Tenable API's, Pytenable or Navi. 
+This repository has the updated versions of the libraries created by MPIV that use Tenable API's, Pytenable or Navi, to interact with Tenable products.
 
-## MPIV Libraries
+## mpiv_io_pyten
 
-Currently we are actively using two libraries:
+This library uses pytenable to interact with Tenable.io. We are not using the API for Tenable.io as we see that pytenable has access two almost all Tenable.io features and we do not want to reinvent the wheel. So far, our library organizes the methods that allows interaction with Tenable.io in four major classes: scans, assets, tags and vulnerabilities. It also has a python file called basic_functions, with some common fucntions that methods will need to work: eg, create new connections, convert pyhton objects to other formats, etc.
+
+### Available functions/methods
+
+#### Scans
+
+&nbsp;&nbsp;**show_scans():** Shows all scans available in T.io and returns a csv file with a report. The same report is printed in screen. See [T.io Scans Report](mpiv_io_pyten/output_files/io_scans_report.csv)
+
+&nbsp;&nbsp;**get_scans_id():** Returns a python list of numbers with the scan ids
+
+#### Assets
+
+&nbsp;&nbsp;**asset_report():** Generates a csv file with the list of assets found in Tenable.io.
+See [T.io Assets Report](mpiv_io_pyten/output_files/io_assets_report.csv)
+
+&nbsp;&nbsp;**update_asset_tag():** Assigns tags in bulk to assets listed in a .csv file. The csv file must have two columns UUID and TAG_ID. See an example file at [Assets and Tags](mpiv_io_pyten/input_files/update_list.csv)
+
+&nbsp;&nbsp;**get_asset_list():** Returns a python list of dictionaries with the assets info
+
+#### Tags
+
+&nbsp;&nbsp;**tag_summary():** Prints in screen an generates a csv report with the list of tags avaialble in T.io
+See [T.io Tags Report](mpiv_io_pyten/output_files/io_tag_summary.csv)
+
+&nbsp;&nbsp;**get_tag_list():** Returns a list of dictionaries with the tags info
+
+#### Vulnerabilities
+
+&nbsp;&nbsp;**vuln_report():** Creates a vulnerabilities csv report. The report can be generated for all scans or for specific scan ids. See [T.io Vulns Report](mpiv_io_pyten/output_files/io_spec_vulns.csv)
+
+
+Additional to these main mehtods the base_function file, has the following functions created
+
+**connect_io():** Creates a connection to Tenable.io using API keys. The keys are read from a file called IO_API_Keys.txt See the following file
+[Assets and Tags](mpiv_io_pyten/input_files/IO_API_Keys.txt)
+
+
 
 ### mpiv_sc_lib 
 This library uses the oficial Tenable.sc API to retrieve information and create new elements in Tenable.sc. Uses the tenable API as we found some limitations to access dashboards and reports using pytenable
@@ -44,41 +80,9 @@ Returns a csv file and dictionary detailing all the items created in Tenable.sc 
 
 See [Example User Created items Report](outputfiles/user_items.csv)
 
-### mpiv_pyten_io_lib
-This library uses pytenable to interact with Tenable.io. We are not using the API for Tenable.io as we see that pytenable has access two almost all Tenable.io features, so we do not need to reinvent the wheel.
 
-#### Available functions
 
-**connect_io():**  
-Creates a connection to Tenable.io using API keys. The keys are read from a file called IO_API_Keys.txt 
-
-**show_scans():**  
-Shows all scans available in T.io and returns a csv file with a report. The same report is printed in screen.
-
-See [T.io Scans Report](outputfiles/tio_scans_report.csv)
-
-**vuln_report():** 
-Creates a vulnerabilities csv report. The filename is a string that should be provided always without specifying the format.
-
-**get_asset_list():**
-Connects to Tenable.io, returns a list of dictionaries with the assets info
-
-**get_tag_list():**
-Connects to Tenable.io, returns a list of dictionaries with the tags info
-
-**asset_report():**
-Generates a csv file with the list of assets found in Tenable.io.
-See [T.io Assets Report](outputfiles/io_assets_report.csv)
-
-**tag_summary():**
-Prints in screen an generates a csv report with the list of tags avaialble in T.io
-
-**update_tags_csv():**
-Assigns tags in bulk to assets listed in a .csv file. The csv file must have two columns UUID and TAG_ID. See the following example:
-
-See [Assets and Tags](outputfiles/update_tags.csv)
-
-### Other libraries
+### Old libraries
 
 **mpiv_pyten_sc_lib**: interact with Tenable.sc through pytenable. Is not receiveing frequent updates and is kept for historic records or if it is required again in the future. To see details of the functions, please check the library .py file.
 
