@@ -7,7 +7,7 @@ class scans:
     # Connect to Tenable.io with no parameter mode
     tio = connect_io()
     
-    def show_scans(self):
+    def report(self):
         '''
         Creates a .csv report named tio_scans_report.csv with the deatils of the id, 
         status, name of the scan and owner of a scan
@@ -25,7 +25,7 @@ class scans:
         return "T.io Scan Report Generated"
  
     
-    def get_scans_id(self):
+    def get_ids(self):
         
         '''
         Returns a python list with all the scan id's available in Tenable.io

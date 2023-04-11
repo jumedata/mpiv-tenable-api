@@ -7,7 +7,7 @@ class assets:
     # Connect to Tenable.io with no parameter mode
     tio = connect_io()
 
-    def get_asset_list(self):
+    def get_list(self):
 
         '''
         Returns a python list of dictionaries with the assets info
@@ -21,7 +21,7 @@ class assets:
         return list_assets
     
 
-    def asset_report(self, filename='io_assets_report'):
+    def report(self, filename='io_assets_report'):
 
         '''
         Generates a csv file with the list of assets found in Tenable.io. The file 
@@ -40,7 +40,7 @@ class assets:
 
         # Create an asset object to use the get asset list
         my_assets = assets()
-        list_assets = my_assets.get_asset_list()
+        list_assets = my_assets.get_list()
 
         with open(filename+'.csv', 'w') as file:
             
@@ -99,7 +99,7 @@ class assets:
         
         return "Assets .csv Report Completed!"
     
-    def update_asset_tag(self, filename):
+    def update_tags_csv(self, filename):
 
         '''
         Updates the tags of an assets according to the information provided in a .csv file

@@ -1,0 +1,83 @@
+Asset List ID,Ownwer,Type,Asset List Name
+1,analyst,dynamic,Systems Discovered Passively
+2,analyst,dynamic,Systems that have been Scanned
+3,analyst,dynamic,Windows Hosts
+4,analyst,dynamic,Voice or Mobile Client Devices
+5,analyst,dynamic,Device Type VPN
+6,analyst,dynamic,Device Type Switch
+7,analyst,dynamic,Device Type Router
+8,analyst,dynamic,Device Type Load-balancer
+9,analyst,dynamic,Linux Hosts
+10,analyst,dynamic,Device Type Firewall
+11,analyst,dynamic,Sniffed Hosts Not in DNS
+12,analyst,dynamic,Logged Hosts Not in DNS
+13,analyst,dynamic,Scanned Hosts Not in DNS
+14,analyst,dynamic,Solaris Hosts
+15,analyst,dynamic,Systems with Software inventory
+16,analyst,dynamic,Hosts using authorized Cloud Services (Salesforce, Netsuite, Webex)
+17,analyst,dynamic,Systems from which LCE has collected logs.
+18,analyst,dynamic,Hosts discovered through event correlation.
+19,analyst,dynamic,Bad Credentials
+20,analyst,dynamic,Apple Computers
+21,analyst,dynamic,Internet Facing Assets
+22,analyst,dynamic,Systems with VPN Access
+23,analyst,dynamic,SSL or TLS Servers
+24,analyst,dynamic,Anti-Virus Current
+25,analyst,dynamic,Systems covered by firewall policies.
+26,analyst,dynamic,Systems with threatlist activity.
+27,analyst,dynamic,Intrusion Activity
+28,analyst,dynamic,Systems Tracking User Statistics
+29,analyst,dynamic,Systems Tracking Login Failure Statistics
+30,analyst,dynamic,Systems Tracking User Source Summary
+31,analyst,dynamic,Internet Browsing Systems
+32,analyst,dynamic,Devices with Data Leakage Events
+33,analyst,dynamic,Botnet Activity
+34,analyst,dynamic,Exploited by Malware
+70,scan manager,static,TL-ACME HQ
+71,scan manager,static,TL-ACME APAC
+72,scan manager,static,TL-ACME EMEA
+73,scan manager,dynamic,Microsoft SQL Client
+74,scan manager,dynamic,Microsoft SQL Server
+75,scan manager,dynamic,IBM DB2 Servers
+76,scan manager,dynamic,MySQL Database Server
+77,scan manager,dynamic,Pervasive PSQL or Btrieve Server
+78,scan manager,dynamic,PostgreSQL Server
+79,scan manager,dynamic,SQLite Installed
+80,scan manager,dynamic,Sybase SQL Anywhere Database Server
+81,scan manager,dynamic,Sybase SQL-Anywhere Database Client
+82,scan manager,dynamic,MySQL Database Client
+83,scan manager,dynamic,IBM DB2 Client
+84,scan manager,dynamic,Oracle Database Client
+85,scan manager,dynamic,Oracle Database Server
+86,scan manager,dynamic,Exploitable (Generic)
+87,scan manager,dynamic,Systems Scanned Within Last 14 Days
+88,scan manager,dynamic,Darwin Hosts
+89,scan manager,dynamic,Solaris Hosts
+90,scan manager,dynamic,Linux Hosts
+91,scan manager,dynamic,CentOS
+92,scan manager,dynamic,Linux Kernel 3.2
+93,scan manager,dynamic,Debian Linux
+94,scan manager,dynamic,Fedora Linux
+95,scan manager,dynamic,SCO OpenServer
+96,scan manager,dynamic,Scientific Linux
+97,scan manager,dynamic,Linux Kernel 3.3
+98,scan manager,dynamic,Linux Kernel 3.4
+99,scan manager,dynamic,Linux Kernel 3.5
+100,scan manager,dynamic,Linux Kernel 3.9
+101,scan manager,dynamic,Linux Kernel 32 Bit
+102,scan manager,dynamic,Linux Kernel 64-Bit
+103,scan manager,dynamic,Linux Kernel Amazon
+104,scan manager,dynamic,Linux Kernel MIPS CPU
+105,scan manager,dynamic,Linux Kernel PPC
+106,scan manager,dynamic,Oracle Linux Server
+107,scan manager,dynamic,PelcoLinux
+108,scan manager,dynamic,TL-Red Hat Enterprise Linux
+109,scan manager,dynamic,Ubuntu Linux
+110,scan manager,dynamic,Linux Kernel 2.2
+111,scan manager,dynamic,Linux Kernel 2.4
+112,scan manager,dynamic,SuSE Linux
+113,scan manager,dynamic,Linux Kernel 2.6
+114,scan manager,dynamic,Linux Kernel 3.1
+115,scan manager,dynamic,Linux Kernel 3.6
+116,scan manager,dynamic,Linux Kernel 3.7
+117,scan manager,dynamic,Linux Kernel 3.8

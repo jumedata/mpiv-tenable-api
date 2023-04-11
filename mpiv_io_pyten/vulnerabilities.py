@@ -8,7 +8,7 @@ class vulnerabilities:
     # Connect to Tenable.io with no parameter mode
     tio = connect_io()
 
-    def vuln_report(self, *args, filename):
+    def report(self, *args, filename):
         '''
         Creates a vulnerabilities csv report. The filename is a string that should be
         provided always without specifying the format.
@@ -22,7 +22,7 @@ class vulnerabilities:
         
         # This line connects to T.io and gets the scan id's using get_scan_ids
         io_scans = scans()
-        scan_ids = io_scans.get_scans_id()
+        scan_ids = io_scans.get_ids()
       
         
         if len(args) == 0:

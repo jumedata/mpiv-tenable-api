@@ -6,7 +6,7 @@ class tags:
 
     tio = connect_io()
 
-    def get_tag_list(self):
+    def get_list(self):
     
         '''
         Returns a python list of dictionaries with tags info
@@ -19,14 +19,14 @@ class tags:
         
         return tags_list
     
-    def tag_summary(self):
+    def summary(self):
         
         '''
         Prints in screen an generates a .csv report with a list of all tags avaialble in T.io
         '''
 
         my_tags = tags()
-        tag_list = my_tags.get_tag_list()
+        tag_list = my_tags.get_list()
 
 
 
