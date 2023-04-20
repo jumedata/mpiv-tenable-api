@@ -8,12 +8,12 @@ For more details about us, please see [MPIV Site](https://mpivpartners.com/)
 
 ## mpiv_io_pyten
 
-This library uses [pytenable](https://github.com/tenable/pyTenable) to interact with Tenable.io. We use pytenable as it has access to almost all Tenable.io features. Our library groups the methods that allows interaction with Tenable.io in classess; so far, four classes are created:_scans, assets, tags and vulnerabilities_ 
+This library uses [pytenable](https://github.com/tenable/pyTenable) to interact with Tenable.io. We use pytenable as it has access to almost all Tenable.io features. Our library groups the methods that allows interaction with Tenable.io in classes; so far, four classes are created:_scans, assets, tags, and vulnerabilities_ 
 
 To see the library's documentation please see: [io_pyten README](mpiv_io_pyten/README.md)
 
 ## mpiv_sc_api
 
-This library uses the [Tenable.sc API](https://docs.tenable.com/tenablesc/api/index.htm) to interact with Tenable.sc. We use the official API rather than pytenable, as we noticed some Tenbale.sc features like reports and dashboards are not yet available in pytenable.Curretnly our library has three main classes:_scans, users and assets lists_ 
+This library uses the [Tenable.sc API](https://docs.tenable.com/tenablesc/api/index.htm) to interact with Tenable.sc. We use the official API rather than pytenable, as we noticed some Tenable.sc features like reports and dashboards are not yet available in pytenable. Currently our library has three main classes:_scans, users, and assets lists_ 
 
 To see the library's documentation please see: [sc_api README](mpiv_sc_api/README.md)

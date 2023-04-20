@@ -20,7 +20,7 @@ See [T.io Assets Report](mpiv_io_pyten/output_files/io_assets_report.csv)
 **summary():** Prints in screen an generates a csv report with the list of tags avaialble in T.io
 See [T.io Tags Report](mpiv_io_pyten/output_files/io_tag_summary.csv)
 
-**get_list():** Returns a pyehon list of dictionaries, each dict has the details of a tag in Tenable.io
+**get_list():** Returns a python list of dictionaries, each dict has the details of a tag in Tenable.io
 
 ## Vulnerabilities
 

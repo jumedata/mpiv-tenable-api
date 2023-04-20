@@ -8,7 +8,7 @@ See [Example Scans Details Report](mpiv_sc_api/output_files/sc_scans_details_rep
 
 ## Assets Lists
 
-**used_in():** Returns a dictionary cotaining the names of the queries and scans where an asset list is used.
+**used_in():** Returns a dictionary containing the names of the queries and scans where an asset list is used.
 
 **show_list():** Creates a csv report with the details of all assets list. If in detail mode, the information is also printed in screen. The functions always returns a list containig the id's of the assets lists
 
