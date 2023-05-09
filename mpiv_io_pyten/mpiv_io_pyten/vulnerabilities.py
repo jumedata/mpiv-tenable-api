@@ -1,14 +1,14 @@
 # Groups all methods related to retrieval of the vulnerabilities found in Tenable.io
 
-from base_functions import *
-from scans import *
+from .base_functions import *
+from .scans import *
 
 class vulnerabilities:
 
     # Connect to Tenable.io with no parameter mode
-    tio = connect_io()
+    
 
-    def report(self, *args, filename):
+    def report(*args, filename):
         '''
         Creates a vulnerabilities csv report. The filename is a string that should be
         provided always without specifying the format.
@@ -21,18 +21,20 @@ class vulnerabilities:
     '''
         
         # This line connects to T.io and gets the scan id's using get_scan_ids
+        
         io_scans = scans()
         scan_ids = io_scans.get_ids()
+        tio = connect_io()
       
         
         if len(args) == 0:
 
 
-            with open(filename+'.csv', 'ab') as reportobj:
+            with open('output_files/'+filename+'.csv', 'ab') as reportobj:
                 for id in scan_ids:
 
                     try:
-                        self.tio.scans.export(id,('severity', 'neq', 'Info'), fobj=reportobj, format='csv')
+                        tio.scans.export(id,('severity', 'neq', 'Info'), fobj=reportobj, format='csv')
                         print("Done with scan id:"+str(id))
 
                     except Exception:
@@ -46,10 +48,10 @@ class vulnerabilities:
             for id in args:
                 
                 if id in scan_ids:
-                    with open(filename+'.csv', 'ab') as reportobj:
+                    with open('output_files/'+filename+'.csv', 'ab') as reportobj:
 
                         try:
-                            self.tio.scans.export(id,('severity', 'neq', 'Info'), fobj=reportobj, format='csv')
+                            tio.scans.export(id,('severity', 'neq', 'Info'), fobj=reportobj, format='csv')
                             print("Done with scan id:"+str(id))
                         except Exception:
                             print("Could not work with Scan:"+str(id))

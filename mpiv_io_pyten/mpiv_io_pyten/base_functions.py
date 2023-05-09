@@ -28,9 +28,11 @@ def connect_io(*args):
 
     '''
 
-    # First Opetation mode, no parameters
+    # Second Opetation mode, no parameters, API keys 
+    # are already saved in a file
+    
     if len(args) == 0:
-        with open("IO_API_Keys.txt") as file:
+        with open("input_files/IO_API_Keys.txt") as file:
             api_keys = [line.rstrip() for line in file]
             access_key = api_keys[0]
             secret_key = api_keys[1]
@@ -38,10 +40,19 @@ def connect_io(*args):
         print(tio.server.status())
         return tio
     
-    # Second operation mode, provide API keys as parameters
+    # First operation mode, for first time use.
+    # user must provide API keys as parameters
+    # and keys will be saved in a file
+
     elif len(args) == 2:
         tio = TenableIO(args[0], args[1])
         print(tio.server.status())
+
+        with open('input_files/IO_API_Keys.txt', 'w') as file:
+            
+            file.write(args[0]+"\n")
+            file.write(args[1]+"\n")
+
         return tio
 
     # Void if incorrect number of parameters provided
