@@ -1,0 +1,12 @@
+Scan ID,Scan Name,Scan Policy, Credentials, Asset Lists
+3,ACME-EMEA-Host-Discovery,AMCE-EMEA-Host-Discovery,None,None
+4,ACME-EMEA-Basic-Network-Scan,ACME-EMEA-Basic-Network-Scan,None,None
+5,ACME-EMEA-Compliance-CIS,ACME-EMEA-CIS Windows Server 2016,Compliance-Windows-Credentials-Internal-Lab,None
+11,TL-ACME-HQ-Host-Discovery,TL-ACME-HQ-Host-Discovery-OS-ID-Policy,Compliance-Windows-Credentials-Internal-Lab;Compliance-SSH-Credentials-Internal-Lab,None
+12,TL-Patch Audit Scan,TL-Windows Patch Audit,TL-Tenable Labs Windows Credentials,None
+13,TL-Credentialed Linux Scan,TL-Linux Credentialed Scan Policy,TL-Tenable Labs Linux Credentials,None
+14,TL-CIS Windows Server 2016 L1 DC Scan,TL-CIS Windows Server 20.16 L1 DC Policy,TL-Tenable Labs Windows Credentials,None
+15,TL-CIS Windows Server 2016 L2 DC Scan,TL-CIS Windows Server 2016 L2 DC Policy,TL-Tenable Labs Windows Credentials,None
+16,TL-CIS Ubuntu 16.04 LTS L1 Scan,TL- CIS Ubuntu 16.04 LTS L1 Policy,TL-Tenable Labs Linux Credentials,None
+17,TL-RHEV Audit Scan,TL-RHEV Audit Policy,TL-Tenable Labs Linux Credentials,None
+18,TL-WAS Scan - DB credentials,TL-Web Application Tests - DB Credentialed,TL-Tenable Labs Windows Credentials;TL-Tenable Labs Linux Credentials,None
