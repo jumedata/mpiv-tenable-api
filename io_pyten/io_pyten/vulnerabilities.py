@@ -4,8 +4,6 @@ from .connections import *
 from .scans import *
 
 class vulnerabilities:
-
-    # Connect to Tenable.io with no parameter mode
     
     @staticmethod
     def report(*args, filename='io_vulns_repo'):

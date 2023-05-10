@@ -15,6 +15,8 @@ See [T.io Assets Report](mpiv_io_pyten/output_files/io_assets_report.csv)
 
 **get_list():** Returns a python list of dictionaries, each dict has the details of an asset in Tenable.io
 
+**untagged():** Gets a csv report with all untagged assets
+
 ## Tags
 
 **summary():** Prints in screen an generates a csv report with the list of tags avaialble in T.io

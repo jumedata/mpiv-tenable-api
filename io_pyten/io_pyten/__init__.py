@@ -1,3 +1,5 @@
+# Init file v1.0
+
 from .connections import *
 from .assets import *
 from .scans import *

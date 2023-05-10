@@ -39,6 +39,7 @@ def connect_io(*args):
         return tio
     
     # Second operation mode, provide API keys as parameters
+    # For first time usage
     elif len(args) == 2:
         tio = TenableIO(args[0], args[1])
         print(tio.server.status())

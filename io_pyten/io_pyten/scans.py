@@ -3,9 +3,7 @@
 from .connections import *
 
 class scans:
-    
-    # Connect to Tenable.io with no parameter mode
-    
+        
     @staticmethod
     def report():
 

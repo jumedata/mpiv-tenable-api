@@ -37,7 +37,7 @@ class tags:
         else:
             print("Category\tValue\t\tTag UUID")
 
-            with open('io_tag_summary.csv', 'w') as file:
+            with open('output_files/io_tag_summary.csv', 'w') as file:
             
                 file.write("Category,Value,Tag UUID\n")
             

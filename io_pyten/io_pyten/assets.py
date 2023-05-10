@@ -4,7 +4,7 @@ from .connections import *
 
 class assets:
 
-    # Connect to Tenable.io with no parameter mode
+    # Static methods allows the class methods to be used directky in the clas
     
     @staticmethod
     def get_list():
