@@ -5,6 +5,7 @@ from tenable.io import TenableIO
 
 ###################### ADDITIONAL REQUIRED IMPORTS FOR CLASSES ################
 import csv
+import smtplib
 
 def connect_io(*args):
     '''

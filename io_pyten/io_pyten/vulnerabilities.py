@@ -45,7 +45,7 @@ class vulnerabilities:
             for id in args:
                 
                 if id in scan_ids:
-                    with open('output_files/'+filename+'.csv', 'ab') as reportobj:
+                    with open('output_files/io_selected_vulns.csv', 'ab') as reportobj:
 
                         try:
                             tio.scans.export(id,('severity', 'neq', 'Info'), fobj=reportobj, format='csv')
